@@ -1,12 +1,13 @@
 import React from 'react';
-import Header from "./header";
-// import StoreFront from './StoreFront';
+import Header from "./Header";
+import KombuchaControl from "./KombuchaControl";
+
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      {/* <KombuchaStore /> */}
+      <KombuchaControl />
     </React.Fragment>
   );
 }
