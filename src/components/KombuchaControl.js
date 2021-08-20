@@ -10,25 +10,31 @@ class KombuchaControl extends React.Component {
       formVisibleOnPage: false
     };
   }
-  
+
+  handleClick = () => {
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
+  }
+
 
   render(){
     let currentlyVisibleState = null;
-    let addKombuchaButton = null;
+    let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewKombuchaForm />
+      currentlyVisibleState = <NewKombuchaForm />;
+      buttonText = "Return to our list of Kombuchas"
     } else {
       currentlyVisibleState = <KombuchaList />
-      addKombuchaButton = <button onClick={this.handleClick}>Add</button>
+      buttonText = "Add Kombucha";
     }
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        {addKombuchaButton }
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
-
 }
 
 export default KombuchaControl;
