@@ -17,16 +17,16 @@ function NewKombuchaForm (props){
           placeholder='Flavor' />
         <input
           type= "number"
-          name='price'
+          name='quantity'
           min='0'
-          placeholder='Price' />
+          placeholder='Quantity' />
         <button type='submit'>Submit</button>
       </form>
     </React.Fragment>
   );
   function handleNewKombuchaFormSubmission(event) {
     event.preventDefault();
-    props.onNewKombuchaCreation({names: event.target.names.value, flavor: event.target.flavor.value, price: event.target.price.value, id: v4()});
+    props.onNewKombuchaCreation({names: event.target.names.value, flavor: event.target.flavor.value, quantity: event.target.quantity.value, id: v4()});
   }
 }
 
