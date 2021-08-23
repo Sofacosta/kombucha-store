@@ -1,6 +1,7 @@
 import React from 'react';
 import NewKombuchaForm from './NewKombuchaForm';
 import KombuchaList from './KombuchaList';
+import KombuchaDetail from './KombuchaDetail';
 
 class KombuchaControl extends React.Component {
 
@@ -8,16 +9,23 @@ class KombuchaControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKombuchaList: []
+      masterKombuchaList: [],
+      selectedKombucha: null
     };
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+    if (this.state.selectedKombucha != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedKombucha: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
   }
-
   handleAddingNewKombuchaToList = (newKombucha) => {
     const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha);
     this.setState({
@@ -25,17 +33,29 @@ class KombuchaControl extends React.Component {
       formVisibleOnPage: false});
   }
 
+  handleChangingSelectedKombucha = (id) => {
+    const selectedKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    this.setState({selectedKombucha: selectedKombucha});
+  }
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
+
+    if (this.state.selectedKombucha !=null) {
+      currentlyVisibleState = 
+      <KombuchaDetail 
+        kombucha = {this.state.selectedKombucha} />
+        buttonText = "Return to Kombucha List";
+    }
+    else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />;
-      buttonText = "Return to our list of Kombuchas"
+      buttonText = "Return to Kombucha List";
     } else {
-      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} />
+      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} onKombuchaSelection={this.handleChangingSelectedKombucha} />;
       buttonText = "Add Kombucha";
     }
+
     return (
       <React.Fragment>
         {currentlyVisibleState}

@@ -6,17 +6,21 @@ function KombuchaList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.kombuchaList.map((kombucha, index) =>
-        <Kombucha names={kombucha.names}
+      {props.kombuchaList.map((kombucha) =>
+        <Kombucha
+        whenKombuchaClicked = { props.onKombuchaSelection } 
+        names={kombucha.names}
         flavor={kombucha.flavor}
-        key={index}/>
+        id={kombucha.id}
+        key={kombucha.id}/>
       )}
     </React.Fragment>
   );
 }
 
 KombuchaList.propTypes = {
-  kombuchaList: PropTypes.array
+  kombuchaList: PropTypes.array,
+  onKombuchaSelection: PropTypes.func
 };
 
 export default KombuchaList;

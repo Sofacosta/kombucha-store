@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 function Kombucha(props){
   return(
     <React.Fragment>
-      <h3>{props.name}</h3>
-      <h3>{props.flavor}</h3>
-      <hr/>
+      <div onClick = {() => props.whenKombuchaClicked(props.id)}>
+        <h3>{props.flavor} - {props.names}</h3>
+        <p><em>{props.price}</em></p>
+        <hr/>
+      </div>
+      
     </React.Fragment>
   )
 }
@@ -14,6 +17,9 @@ function Kombucha(props){
 Kombucha.propTypes = {
   name: PropTypes.string,
   flavor: PropTypes.string,
-}
+  price: PropTypes.string,
+  id: PropTypes.string,
+  whenKombuchaClicked: PropTypes.func
+};
 
 export default Kombucha;
