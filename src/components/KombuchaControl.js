@@ -46,6 +46,18 @@ class KombuchaControl extends React.Component {
     });
   }
 
+  handleRemovingPint = (id) => {
+    const selectedKombucha = this.state.masterKombuchaList.filter(kombucha => kombucha.id === id)[0];
+    const updatedKombucha = {name: selectedKombucha.name, pintsRemaining: selectedKombucha.pintsRemaining -1, id: selectedKombucha.id };
+    const kombuchaIndex = this.state.masterKombuchaList.indexOf(selectedKombucha);
+    const startMasterKombuchaList = this.state.masterKombuchaList.slice(0, kombuchaIndex);
+    const endMasterKombuchaList = this.state.masterKombuchaList.slice(kombuchaIndex +1);
+    const editedMasterKombuchaList = startMasterKombuchaList.concat(updatedKombucha).concat(endMasterKombuchaList);
+    if (selectedKombucha.pintsRemaining > 0) {
+      this.setState({masterKombuchaList: editedMasterKombuchaList});
+    }   
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;

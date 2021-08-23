@@ -9,7 +9,8 @@ function KombuchaDetail(props){
       <h2>Kombucha Details</h2>
       <p>Name: {kombucha.names}</p>
       <p>Flavor: {kombucha.flavor}</p>
-      <p> Quantity available per pint glass: {kombucha.quantity}</p>
+      <p>Price per pint glass: ${kombucha.price}</p>
+      <p>Remaining pints: {kombucha.pintsRemaining}</p>
       <button onClick={ () => onClickingDelete(kombucha.id)}>Delete kombucha keg</button>
       <hr/>
       
