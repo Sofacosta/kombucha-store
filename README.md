@@ -1,3 +1,58 @@
+
+# KOMBUCHA STORE 
+
+</div>
+
+<h3>"A React application for a Kombucha Store to manage their product. Initiated: 08-19-2021 Modified: 08-23-2021"</h3>
+<h4> By Sofia Acosta </h4>
+
+## Description
+A user can see all kombuchas available as well as their description. The user is able to add more kombuchas to the list and add or remove kegs as needed. 
+
+## Component Diagram
+Coming soon...
+
+## Setup/Installation Requirements
+
+##### Software Requirements
+
+1. Internet browser
+2. A code editor such as VSCode to view and edit the code
+3. Please see instructions below on how to build a React-App
+
+##### Open Locally
+
+- Click on the link to my repository: [https://github.com/Sofacosta/kombucha-store.git]()
+- Click on the green "Code" button and copy the repository URL
+- Open your terminal and use the command `git clone https://github.com/Sofacosta/kombucha-store.git` into the directory you would like to clone the repository
+- Open in text editor to view code and make changes
+
+##### View In Browser
+- Navigate to kombucha-store folder in the command line
+- Use the command `dotnet run` to execute the compiled code and start a localhost
+- In browser navigate to http://localhost:3000
+
+## Known Bugs
+
+- No known bugs
+
+## Support and Contact Details
+
+Contact me at sofiaacostarascon@gmail.com
+
+## Technologies Used
+
+- React
+- JSX
+- Javascript
+- Babel
+- npm
+- webpack
+
+### License
+
+This software is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
