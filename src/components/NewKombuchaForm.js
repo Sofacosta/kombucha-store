@@ -16,8 +16,9 @@ function NewKombuchaForm (props){
           name='flavor'
           placeholder='Flavor' />
         <input
-          type= "text"
+          type= "number"
           name='price'
+          min='0'
           placeholder='Price' />
         <button type='submit'>Submit</button>
       </form>
@@ -27,10 +28,9 @@ function NewKombuchaForm (props){
     event.preventDefault();
     props.onNewKombuchaCreation({names: event.target.names.value, flavor: event.target.flavor.value, price: event.target.price.value, id: v4()});
   }
+}
 
   NewKombuchaForm.propTypes = {
     onNewKombuchaCreation: PropTypes.func
   };
-
-}
 export default NewKombuchaForm;
