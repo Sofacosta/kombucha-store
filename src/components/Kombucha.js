@@ -7,11 +7,10 @@ function Kombucha(props){
       <div onClick = {() => props.whenKombuchaClicked(props.id)}>
         <h3>{props.flavor} - {props.names}</h3>
         <p><em>{props.price}</em></p>
-        <hr/>
       </div>
-      
+       <hr/>   
     </React.Fragment>
-  )
+  );
 }
 
 Kombucha.propTypes = {
@@ -19,7 +18,7 @@ Kombucha.propTypes = {
   flavor: PropTypes.string,
   price: PropTypes.string,
   id: PropTypes.string,
-  whenKombuchaClicked: PropTypes.func
+  whenKombuchaClicked: PropTypes.func,
+  whenRemoveKombuchaClicked: PropTypes.func
 };
-
 export default Kombucha;
