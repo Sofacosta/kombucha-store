@@ -1,9 +1,9 @@
 import React from "react";
 import { v4 } from 'uuid';
+import PropTypes from "prop-types";
 
-function NewKombuchaForm (){
+function NewKombuchaForm (props){
   
-
   return (
     <React.Fragment>
       <form onSubmit={handleNewKombuchaFormSubmission}>
@@ -16,7 +16,7 @@ function NewKombuchaForm (){
           name='flavor'
           placeholder='Flavor' />
         <input
-          type= "num"
+          type= "text"
           name='price'
           placeholder='Price' />
         <button type='submit'>Submit</button>
@@ -25,10 +25,12 @@ function NewKombuchaForm (){
   );
   function handleNewKombuchaFormSubmission(event) {
     event.preventDefault();
-    console.log(event.target.names.value);
-    console.log(event.target.location.value);
-    console.log(event.target.price.value);
+    props.onNewKombuchaCreation({names: event.target.names.value, flavor: event.target.flavor.value, price: event.target.price.value, id: v4()});
   }
+
+  NewKombuchaForm.propTypes = {
+    onNewKombuchaCreation: PropTypes.func
+  };
 
 }
 export default NewKombuchaForm;
