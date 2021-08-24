@@ -10,7 +10,7 @@
 A user can see all kombuchas available as well as their description. The user is able to add more kombuchas to the list and add or remove kegs as needed. 
 
 ## Component Diagram
-Coming soon...
+![component](https://user-images.githubusercontent.com/76922539/130694273-221817ba-21e7-48f6-96bc-eb8d085007d0.jpg)
 
 ## Setup/Installation Requirements
 
